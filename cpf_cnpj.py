@@ -31,7 +31,10 @@ class CpfCnpj:
         return mascara.mask(self.cpf)
 
     def __str__(self):
-        return self.format_cpf()
+        if self.tipo_documento == 'cpf':
+            return self.format_cpf()
+        elif self.tipo_documento == 'cnpj':
+            return self.format_cnpj()
 
     def cnpj_e_valido(self,cnpj):
         if len(cnpj) == 14:
@@ -39,3 +42,7 @@ class CpfCnpj:
             return validate_cnpj.validate(cnpj)
         else:
             raise ValueError("Quantidade de digitos invalida!")
+    
+    def format_cnpj(self):
+        mascara = CNPJ()
+        return mascara.mask(self.cnpj)
