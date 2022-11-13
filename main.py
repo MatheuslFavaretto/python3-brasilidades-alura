@@ -1,13 +1,7 @@
-from cpf_cnpj import Documento
-from validate_docbr import CNPJ
+import re
 
-cpf_um = "15316264754"
-#print(cpf_um)
+padrao = "\w{5,50}@\w{3,10}.\w{2,3}.\w{2,3}"
+texto = "aaabbbcc rodrigo123@gmail.com.br"
+resposta = re.search(padrao, texto)
 
-#exemplo_cnpj = "35379838000112"
-#exemplo_cpf = "11111111112"
-
-#cnpj = CNPJ()
-#print(cnpj.validate(exemplo_cnpj))
-documento = Documento.cria_documento(cpf_um)
-print(documento)
+print(resposta.group())
