@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-from datasbr import DatasBr
+from datas_br import DatasBr
 
-cadastro = DatasBr()
-print(cadastro.momento_cadastro)
+hoje = DatasBr()
+print(hoje.tempo_cadastro())
